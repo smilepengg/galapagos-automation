@@ -8,6 +8,5 @@ set_property PROGRAM.FILE {shellTop.bit} [get_hw_devices xcku115_0]
 current_hw_device [get_hw_devices xcku115_0]
 
 #Programming device
-set_property PROGRAM.FILE {home/smilepeng/test_tcl/shellTop.bit} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {shellTop.bit} [get_hw_devices xcku115_0]
 program_hw_devices [get_hw_devices xcku115_0]
-
