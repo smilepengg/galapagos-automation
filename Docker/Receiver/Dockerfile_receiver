@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     netcat-openbsd \
     net-tools \
     cmake \
+    git \
     build-essential \
     grep \
     libglib2.0-0 \
@@ -26,3 +27,5 @@ WORKDIR /home/user
 
 #exposing port for file transfer
 EXPOSE 44444
+
+git clone https://github.com/UofT-HPRC/galapagos
