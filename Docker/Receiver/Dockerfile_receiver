@@ -10,7 +10,12 @@ RUN apt-get update && apt-get install -y \
     cmake \
     build-essential \
     grep \
-    libx11-6 \
+    libglib2.0-0 \
+    libsm6 \
+    libxrender1 \
+    libxrandr2 \
+    libfreetype6 \
+    libfontconfig \
     && \
     rm -rf /var/lib/apt/lists/*
 
