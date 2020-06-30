@@ -1,12 +1,5 @@
 FROM ubuntu:16.04
 
-#RUN apt-get clean
-#RUN apt-get update
-#RUN apt-get update --fix-missing
-#RUN apt-get -y upgrade
-#RUN apt-get install openssh-server
-
-
 RUN apt-get update && apt-get install -y \
     git \
     cmake \
@@ -30,6 +23,8 @@ RUN apt-get update && apt-get install -y \
     && \
     rm -rf /var/lib/apt/lists/*
 
+EXPOSE 44444
+
 RUN pip3 install jupyter pyfiglet pyinquirer prompt_toolkit==1.0.14 xmltodict
 
 RUN pip3 uninstall -y ipython
@@ -46,12 +41,14 @@ RUN cd /home && wget http://downloads.sourceforge.net/project/boost/boost/1.66.0
   && rm -rf boost_1_66_0
 
 USER user
+WORKDIR /home/user
 
 #configures bash_kernel
 RUN git clone https://github.com/takluyver/bash_kernel \
     && cd /home/user/bash_kernel \
     && pip3 install bash_kernel \
     && python3 -m bash_kernel.install
+
 RUN rm -rf /home/user/bash_kernel
 
 RUN git clone --recursive https://github.com/UofT-HPRC/galapagos.git
